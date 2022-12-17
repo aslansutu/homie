@@ -1,24 +1,7 @@
 #! /bin/python3
 
-from ping3 import ping
-import sys
+import subprocess
 
-
-def is_online(host: str):
-    """Checks if device is online
-
-    Args:
-        host: IP address or DNS name of device
-
-    Returns:
-        True if online, False if offline
-    """
-    return bool(ping(host))
-
-def shutdown(host: str):
-    if sys.platform.startswith('linux'):
-        print('shutdown')
-        
-        
-if __name__ == "__main__":
-        print(is_online('10.143.0.1'))
+def shutdown(ip: str, username: str, password: str, os: str)
+    cmd = 'net rpc -S ' + ip + ' -U ' + username + '%' + password ' shutdown -t 1 -f'
+    subprocess.call(["net", "rpc", "-S", ])
